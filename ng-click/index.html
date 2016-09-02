@@ -1,0 +1,92 @@
+<!--
+//Created by: Rong Fan
+//Email:rong.fan1031@gmail.com
+//2016-8-30
+-->
+
+<!DOCTYPE html>
+<html ng-app="app05">
+
+  <head>
+    <link data-require="bootstrap-css@4.0.0-alpha.2" data-semver="4.0.0-alpha.2" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" />
+    <script data-require="angular.js.1.3@1.5.2" data-semver="1.5.2" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body>
+    <!--<h1>Hello Plunker!</h1>-->
+    <div ng-controller="Controller1 as con1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone Model</th>
+            <th>Status</th>
+            <th>Purchase Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in con1.objectArray">
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phonemodel}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.purchasedate}}</td>
+          </tr>
+        </tbody>
+      </table>
+        
+      
+      <form ng-submit="con1.SubmitForm();">
+        <div class="panel-body">
+          <div class ="col-xs 12 col-sm-5 col-md-5">
+            
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" ng-model="con1.Object.name" class="form-control"/>
+              </div>
+              
+               <div class="form-group">
+                <label>Email</label>
+                <input type="text" ng-model="con1.Object.email" class="form-control"/>
+               </div>
+              
+              <div class="form-group">
+                <label for="form-control">Model </label>
+                <select class="form-control" ng-model="con1.Object.phonemodel">
+                    <option>6S</option>
+                    <option>6S Plus</option>
+                    <option>6</option>
+                    <option>5S</option>
+                    <option>5</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="form-control">Status</label>
+                  <select class="form-control" ng-model="con1.Object.status">
+                      <option>Positive</option>
+                      <option>Negative</option>
+                  </select>
+              </div>
+              
+              <div class="form-group">
+                  <label for="form-control">Purchase On</label>
+                  <input type="date" class="form-control" ng-model="con1.Object.purchasedate">
+              </div>
+                  <input type="submit" />
+                  
+                  <!--ng-click has the same function with submit-->
+                  <button ng-click="con1.SubmitForm();"> ClickFunction</button>
+              </div>
+        </div>
+      </form>
+      
+      
+      
+    </div>
+  </body>
+
+</html>
